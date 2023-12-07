@@ -1,0 +1,13 @@
+= form_for @friend do |f|
+  - if @friend.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@friend.errors.count, "error")} prohibited this friend from being saved:"
+      %ul
+        - @friend.errors.full_messages.each do |message|
+          %li= message
+    
+  .field
+    = f.label :Friend_id
+    = f.number_field :Friend_id
+  .actions
+    = f.submit 'Save'

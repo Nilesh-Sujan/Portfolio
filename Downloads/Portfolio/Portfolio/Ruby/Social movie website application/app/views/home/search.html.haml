@@ -1,0 +1,70 @@
+.jumbotron
+  .container.shadow-lg.p-3.mb-5.bg-body.rounded.border.border-dark.border.border-4
+    %h1.text-center #{t('Movie info')}
+    %p.text-center #{t('information of movies')}
+
+
+%table.table-striped
+  %thead
+    %tr
+      %th{width: '10%'} Title
+      %th{width: '5%'} Year
+      %th{width: '80%'} Overview
+      %th{width: '30%'} Rating
+      %th{width: '80%'}Available At
+      %th
+      %th
+
+  %tbody
+    -@movies.each do |val|
+      %tr
+        %td= val['title']
+        %td= val['year']
+        %td= val['overview']
+        %td= val['imdbRating']
+        %td= val['streamingInfo'][1]
+        %td= @name = val['title']
+        %td= @id = val['id']
+        %td= button_to 'add',:action => :watched, :controller => :home, :method => :watched
+      %tr
+        #player
+        :javascript
+          var tag = document.createElement('script');
+
+          tag.src = "https://www.youtube.com/iframe_api";
+          var firstScriptTag = document.getElementsByTagName('script')[0];
+          firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+          var player;
+          function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+              height: '300',
+              width: '500',
+              videoId: '#{@video['id']}',
+              playerVars: {
+                'playsinline': 1
+              },
+              events: {
+                'onReady': onPlayerReady,
+                'onStateChange': onPlayerStateChange
+              }
+            });
+          }
+
+          function onPlayerReady(event) {
+            event.target.playVideo();
+          }
+
+          var done = false;
+          function onPlayerStateChange(event) {
+            if (event.data == YT.PlayerState.PLAYING && !done) {
+              setTimeout(stopVideo, 6000);
+              done = true;
+            }
+          }
+          function stopVideo() {
+            player.stopVideo();
+          }
+
+
+%br

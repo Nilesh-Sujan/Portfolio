@@ -1,0 +1,7 @@
+{
+    "Visitor": -1,
+    "User": 0,
+    "Admin": 1,
+    "Super Admin": 2,
+    "Owner": 3
+}

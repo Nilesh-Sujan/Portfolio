@@ -1,0 +1,24 @@
+.jumbotron
+  .container.shadow-lg.p-3.mb-5.bg-body.rounded.border.border-dark.border.border-4
+    %h1.text-center #{t('Recommendations')}
+    %p.text-center #{t('Find recommendations for new TV shows and Movies to watch')}
+
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th
+      %th
+      %th
+      %th
+      %th
+      %th
+      %th
+
+      %tbody
+        - @arr.each do |arr|
+          -if arr != nil
+            %tr
+              %td=Movie.find(arr.id).title
+%br

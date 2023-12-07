@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  User_id: 1
+  Stream_id: 1
+  watch_time: 1
+  Rated: false
+  Date_watched: 
+
+two:
+  User_id: 1
+  Stream_id: 1
+  watch_time: 1
+  Rated: false
+  Date_watched: 

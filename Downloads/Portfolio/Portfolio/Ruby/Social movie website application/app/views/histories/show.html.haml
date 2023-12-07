@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b User:
+  = @history.User_id
+%p
+  %b Stream:
+  = @history.Stream_id
+%p
+  %b Watch time:
+  = @history.watch_time
+%p
+  %b Rated:
+  = @history.Rated
+%p
+  %b Date watched:
+  = @history.Date_watched
+
+= link_to 'Edit', edit_history_path(@history)
+\|
+= link_to 'Back', histories_path

@@ -1,0 +1,22 @@
+{
+    "prefixes": {
+        "User": [".", "u."],
+        "^Admin": ["&"]
+    },
+
+    "separator": " ",
+
+    "Roles": {
+        "@everyone": "User",
+        "Admin": "Admin",
+        "Super Admin": "Super Admin",
+        "Owner": "Owner",
+        "Custom Tag": "Admin"
+    },
+
+    "prebuiltCommands": {
+        "music": true
+    },
+
+    "token": "PASTE_YOUR_TOKEN_HERE"
+}

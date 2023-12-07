@@ -1,0 +1,25 @@
+%h1 Listing friends
+%h1
+  Your ID:
+  = current_user.User_id
+%table
+  %thead
+    %tr
+      %th{width: '50%'} Name
+      %th{width: '50%'} username
+      %th
+      %th
+      %th
+
+  %tbody
+    - @friends.each do |friend|
+      %tr
+        %td= User.find(friend.Friend_id).name
+        %td= User.find(friend.Friend_id).username
+        %td= link_to 'Show', friend
+        %td= link_to 'Edit', edit_friend_path(friend)
+        %td= link_to 'Destroy', friend, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Friend', new_friend_path
